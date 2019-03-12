@@ -12,7 +12,7 @@ with open('filtered.vcf') as infile:
             for i in inf:
                 if i[:6] == 'CLNSIG':
                     sig[attr[2]] = i.split('=')[-1]
-with open('filteredTsv.txt') as tsv:
+with open('annotatedVep.txt') as tsv:
     for line in tsv:
         if line[0] != '#':
             line = line.rstrip()

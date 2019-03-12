@@ -1,4 +1,4 @@
-with open('filteredAnnotated.vcf') as infile:
+with open('filtered.vcf') as infile:
     sig = {}
     for line in infile:
         if line[0] != '#':
@@ -15,7 +15,7 @@ with open('PrimateAI_scores_v0.2.tsv') as infile:
             attr = line.split()
             scores[(attr[0],attr[1],attr[2],attr[3])] = attr[10]
 
-with open('filteredSpliceTsv.txt') as tsv:
+with open('annotatedSplice.txt') as tsv:
     for line in tsv:
         if line[0] != '#':
             line = line.rstrip()
@@ -23,7 +23,7 @@ with open('filteredSpliceTsv.txt') as tsv:
             prim = scores.get(sig.get(attr[0]))
             if prim != None:
                 attr.append(prim)
-            print('\t'.join(attr))
+                print('\t'.join(attr))
         else:
             line = line.rstrip()
             attr = line.split()
